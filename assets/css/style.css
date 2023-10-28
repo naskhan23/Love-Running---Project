@@ -20,6 +20,19 @@ body {
 
 }
 
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #252525;
+}
+
+.hidden-heading {
+  display: none;
+}
+
+
+
 header {
 
   background-color: #ffffff;
@@ -39,12 +52,7 @@ header a {
   color: inherit;
 }
 
-h1 {
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #252525;
-}
+
 
 #menu {
   font-size: 110%;
@@ -98,7 +106,156 @@ main{
   height: 600px;
   width: 100%;
   background: url("../images/hero-image.webp") no-repeat center center/cover;
+  position: relative;
 }
+
+#cover-text {
+  /* final rgb value set the opacity so it is semi transparent */
+  background-color: rgb(241, 109, 107, .7);
+  font-size: 130%;
+  position: absolute;
+  bottom: 30px;
+  width: 80%;
+  min-height: 200px;
+  padding-top: 40px;
+  padding-left: 10px;
+
+}
+
+#cover-text > h2, #cover-text > h3 {
+  color: #ffffff;
+
+}
+
+/* reason section */
+
+#reasons {
+  width: 90%;
+  margin: 20px auto;
+  }
+
+  #reasons h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 200%;
+  }
+
+  #benefits-physical > div,
+  #benefits-mental > div {
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+
+  benefits {
+    padding: 0 20px;
+
+  }
+
+  #benefits hr {
+    border-top: 1px solid #3a3a3a;
+    margin: 5px 0;
+  }
+
+ #circle-cover-bg {
+    background: url("../images/reasons-image.webp") no-repeat top center / cover;
+    height: 90vw;
+    width: 90vw;
+    margin-bottom: 20px;
+    /* makes the square image into a circle */
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  #benefits-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+/* meetup times section */
+
+#times {
+  background:url("../images/dublin-city.webp") no-repeat center/cover;
+  /* handles responsivity the need for a media query */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#times div {
+  color: #fafafa;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  text-align: center;
+  /* this will not wrap on screens of less than 400px wide. 
+  each div will expand to fill the available space on it's row */
+  flex-basis: 200px;
+  flex-grow: 1;
+  /* creates a grid of meetup time div over the background image */
+  border: 2px solid white;
+}
+
+#times h3 {
+  /* override the heading color set in general styles */
+  color: #fafafa;
+
+}
+
+/* gallery page */
+
+#photos img {
+  width: 100%;
+ }
+
+#photos {
+  line-height: 0;
+}
+
+ /* form */ 
+
+ #signup {
+  background-image: url(../images/signup-image.webp);
+  background-size: cover;
+  background-position: 75%;
+  padding: 20px 10% 0 10%;
+  flex-grow: 1;
+ }
+
+ #signup-form {
+  color: #ffffff;
+  background-color: rgba(60, 60, 60, 0.6);
+  padding: 30px;
+ }
+
+ #signup-form>h2 {
+  color: #fafafa;
+  margin-bottom: 20px;
+ }
+
+ #text-input {
+  background: transparent;
+  color: #fafafa;
+  width: 100%;
+  height: 25px;
+  margin: 5px 0 20px 0;
+  border: 1px solid #fafafa;
+  border-radius: 2px;
+  padding: 0 5px;
+ }
+
+ .radio-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+ }
+
+ .join-button {
+  margin-top: 20px;
+  border-radius: 2px;
+  padding: 15px 32px;
+  font-size: 100%;
+  background-color: #454b1b;
+  color: #fafafa;
+ }
 
 footer{
 #social-networks {
@@ -108,6 +265,15 @@ footer{
   flex-direction: row;
   justify-content: space-evenly;
   list-style-type: none;
+}
+
+/* media query : large or landscape phones (576 and up)*/
+@media screen and (min-width: 576px) {
+  #photos {
+    column-count: 2;
+    column-gap: 0;
+  }
+  
 }
 
 }
@@ -141,9 +307,69 @@ footer{
 }
 
 /* main content */
-          main {
-            margin-top: 145px;
-          }
+main {
+  /* Enlarge main element to push footer down */
+ flex: 1 0 auto;
+
+ /* add margin at the top to prevent content from being covered by the header */ 
+ margin-top: 145px;
+
+ /* enable flex properties for child element */ 
+ display: flex;
+ flex-direction: column;
+ }
+
+
+/* hero */ 
+#cover-text {
+  width: 300px;
+  right: 50px;
+}
+/* reasons sections */ 
+#benefits-physical,
+#benefits-mental {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#benefits-physical > div,
+#benefits-mental > div {
+  width: 75%;
+}
+
+#benefits-mental > div {
+  text-align: end;
+  align-self: flex-end;
+}
+
+/* gallery */
+
+#photos {
+  column-count: 3;
+}
+
+/* media query 768px and up */ 
+
+#signup {
+  background-position: center;
+  position: relative;
+}
+
+#signup-form {
+  max-width: 400px;
+  position: absolute;
+  left: 10%;
+  top: 150px;
+}
+
+.text-input:hover {
+  border-color: #f16c6b;
+}
+
+.join-button:hover {
+  background-color: #fafafa;
+  color: #454b1b;
 }
 
 /* large devices (laptop and desktop, 992px and up) */
@@ -152,4 +378,39 @@ footer{
     border-bottom: 1px solid #3a3a3a;
   }
   
+}
+
+/* gallery */
+
+#photos {
+  column-count: 4;
+}
+
+
+@media screen and (min-width: 1200px) {
+  /* reasons sections */ 
+  #benefits {
+    display: flex;
+    flex-direction: row;
+
+  }
+  #benefits > div {
+    flex: 1;
+  }
+
+  #benefits-image {
+    order: 0;
+  }
+
+  #benefits-mental {
+    order: 1;
+  }
+
+  #benefits-mental > div {
+    align-self: flex-start;
+  }
+
+  #benefits-physical > div {
+    align-self: flex-end;
+  }
 }
