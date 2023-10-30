@@ -267,6 +267,25 @@ footer{
   list-style-type: none;
 }
 
+/* footer {
+  height: 150px;
+  }
+#social-networks {
+  text-align: center;
+}
+
+#social-networks li {
+  display: inline;
+}
+
+#social-networks {
+  font-size: 160%;
+  margin: 1%;
+  padding: 5%;
+  color: #3a3a3a;
+}
+} */
+
 /* media query : large or landscape phones (576 and up)*/
 @media screen and (min-width: 576px) {
   #photos {
@@ -276,7 +295,8 @@ footer{
   
 }
 
-}
+
+
 
 /* media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
